@@ -92,7 +92,11 @@ const CommaSeparatedLinkString = () => {
     {
       name: "每行一个",
       fn: () => {
-        setChangeValue(needChangeValue.split(splitValue).join("\n"));
+        setChangeValue(
+          needChangeValue
+            .split("\n")
+            .join(splitValue + "\n")
+        );
       },
     },
     {
