@@ -59,18 +59,48 @@ const CommaSeparatedLinkString = () => {
   const optionList = [
     {
       name: "加单引号",
+      fn: () => {
+        setChangeValue(
+          needChangeValue
+            .split("\n")
+            .map((item) => `'${item}'`)
+            .join(splitValue)
+        );
+      },
     },
     {
       name: "加双引号",
+      fn: () => {
+        setChangeValue(
+          needChangeValue
+            .split("\n")
+            .map((item) => `"${item}"`)
+            .join(splitValue)
+        );
+      },
     },
     {
       name: "去除第一个",
+      fn: () => {
+        setChangeValue(needChangeValue.split("\n").slice(1).join(splitValue));
+      },
     },
     {
       name: "每行一个",
+      fn: () => {
+        setChangeValue(needChangeValue.split(splitValue).join("\n"));
+      },
     },
     {
       name: "去除引号",
+      fn: () => {
+        setChangeValue(
+          needChangeValue
+            .split("\n")
+            .map((item) => item.replace(/['"]/g, ""))
+            .join(splitValue)
+        );
+      },
     },
     {
       name: "复制",
