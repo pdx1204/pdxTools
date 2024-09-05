@@ -74,9 +74,16 @@ const CommaSeparatedLinkString = () => {
     },
     {
       name: "复制",
+      fn: () => {
+        navigator.clipboard.writeText(changeValue);
+      },
     },
     {
       name: "清空",
+      fn: () => {
+        setNeedChangeValue("");
+        setChangeValue("");
+      },
     },
   ];
   return (
@@ -92,12 +99,18 @@ const CommaSeparatedLinkString = () => {
       <div className={"my-5"}>
         <input
           type="text"
-          className={"w-[50px] px-1 py-1 border border-red-400 rounded"}
+          className={
+            "w-[50px] px-1 py-1 border border-red-400 rounded text-base"
+          }
           value={splitValue}
           onChange={(e) => setSplitValue(e.target.value)}
         />
         {optionList.map((item) => (
-          <button key={item.name} className={"mx-2 text-base"}>
+          <button
+            key={item.name}
+            className={"mx-2 text-base"}
+            onClick={item.fn}
+          >
             {item.name}
           </button>
         ))}
