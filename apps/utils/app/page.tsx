@@ -4,54 +4,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ChangeEventHandler, useState } from "react";
 import { message } from "react-message-popup";
+import { useToast } from "@/hooks/use-toast";
 
-export default function Home() {
-  return (
-    <div>
-      {/* <Header /> */}
-      <CommaSeparatedLinkString />
-    </div>
-  );
+export default function CommaSeparatedLinkStringPage() {
+  return <CommaSeparatedLinkString />;
 }
-
-const TAB_LIST = [
-  {
-    name: "图片预览",
-  },
-  {
-    name: "URL Decode&Encode",
-  },
-  {
-    name: "颜色值转换",
-  },
-  {
-    name: "常用颜色",
-  },
-  {
-    name: "逗号分隔链接字符串",
-  },
-  {
-    name: "正则表达式提取文本",
-  },
-];
-const Header: React.FC<any> = () => {
-  return (
-    <div>
-      <ul className={"flex"}>
-        {TAB_LIST.map((item) => (
-          <li key={item.name} className={"mr-4 cursor-pointer"}>
-            {item.name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
 
 const CommaSeparatedLinkString = () => {
   const [needChangeValue, setNeedChangeValue] = useState("");
   const [changeValue, setChangeValue] = useState("");
   const [splitValue, setSplitValue] = useState(",");
+  const { toast } = useToast();
 
   const onNeedChangeValue: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     const value = e.target.value;
@@ -92,11 +55,7 @@ const CommaSeparatedLinkString = () => {
     {
       name: "每行一个",
       fn: () => {
-        setChangeValue(
-          needChangeValue
-            .split("\n")
-            .join(splitValue + "\n")
-        );
+        setChangeValue(needChangeValue.split("\n").join(splitValue + "\n"));
       },
     },
     {
@@ -115,6 +74,9 @@ const CommaSeparatedLinkString = () => {
       fn: () => {
         navigator.clipboard.writeText(changeValue);
         message.success("复制成功");
+        // toast({
+        //   description: "复制成功",
+        // });
       },
     },
     {
@@ -126,7 +88,7 @@ const CommaSeparatedLinkString = () => {
     },
   ];
   return (
-    <div className={" text-xs px-5 py-5"}>
+    <div className={" text-xs py-5"}>
       <Textarea
         className={"w-full rounded p-2 text-base"}
         rows={10}
