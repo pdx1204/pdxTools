@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ChangeEventHandler, useState } from "react";
+import { message } from "react-message-popup";
 
 export default function Home() {
   return (
@@ -109,6 +110,7 @@ const CommaSeparatedLinkString = () => {
       name: "复制",
       fn: () => {
         navigator.clipboard.writeText(changeValue);
+        message.success("复制成功");
       },
     },
     {
