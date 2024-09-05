@@ -1,4 +1,7 @@
 "use client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { ChangeEventHandler, useState } from "react";
 
 export default function Home() {
@@ -118,40 +121,38 @@ const CommaSeparatedLinkString = () => {
   ];
   return (
     <div className={" text-xs px-5 py-5"}>
-      <textarea
-        className={"w-full border border-red-400 rounded p-2 text-base"}
+      <Textarea
+        className={"w-full rounded p-2 text-base"}
         rows={10}
         name=""
         id=""
         value={needChangeValue}
         onChange={onNeedChangeValue}
-      ></textarea>
-      <div className={"my-5"}>
-        <input
+      ></Textarea>
+      <div className={"my-5 flex"}>
+        <Input
           type="text"
-          className={
-            "w-[50px] px-1 py-1 border border-red-400 rounded text-base"
-          }
+          className={"w-[50px] rounded text-base"}
           value={splitValue}
           onChange={(e) => setSplitValue(e.target.value)}
         />
         {optionList.map((item) => (
-          <button
+          <Button
             key={item.name}
             className={"mx-2 text-base"}
             onClick={item.fn}
           >
             {item.name}
-          </button>
+          </Button>
         ))}
       </div>
-      <textarea
-        className={"w-full border border-red-400 rounded p-2 text-base"}
+      <Textarea
+        className={"w-full rounded p-2 text-base"}
         rows={10}
         name=""
         id=""
         value={changeValue}
-      ></textarea>
+      ></Textarea>
     </div>
   );
 };
