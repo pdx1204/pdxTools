@@ -97,7 +97,7 @@ const CommaSeparatedLinkString = () => {
         value={needChangeValue}
         onChange={onNeedChangeValue}
       ></Textarea>
-      <div className={"my-5 flex"}>
+      <div className={"my-5 flex justify-start items-center"}>
         <Input
           type="text"
           className={"w-[50px] rounded text-base"}

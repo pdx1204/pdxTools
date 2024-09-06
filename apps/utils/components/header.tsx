@@ -18,7 +18,7 @@ const Header: React.FC<any> = () => {
 
   return (
     <nav
-      className={`p-4 rounded shadow-lg ${theme.resolvedTheme === "dark" ? "bg-gray-900" : "bg-white"} -mx-5 mb-10`}
+      className={`p-4 shadow-lg ${theme.resolvedTheme === "dark" ? "bg-gray-900" : "bg-white"} -mx-5 mb-10 text-sm`}
     >
       <ul className="flex space-x-6">
         {TAB_LIST.map((item) => (
