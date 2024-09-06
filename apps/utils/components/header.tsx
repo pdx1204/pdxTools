@@ -1,8 +1,11 @@
 "use client";
+import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 
 const Header: React.FC<any> = () => {
   const router = useRouter();
+
+  const theme = useTheme();
 
   const TAB_LIST = [
     { name: "逗号分隔链接字符串", path: "/" },
@@ -14,12 +17,15 @@ const Header: React.FC<any> = () => {
   ];
 
   return (
-    <nav className="bg-gray-900 p-4 rounded shadow-lg -mx-5 mb-10">
+    <nav
+      className={`p-4 rounded shadow-lg ${theme.resolvedTheme === "dark" ? "bg-gray-900" : "bg-white"} -mx-5 mb-10`}
+    >
       <ul className="flex space-x-6">
         {TAB_LIST.map((item) => (
           <li
             key={item.name}
-            className="text-gray-200 cursor-pointer hover:text-yellow-300 transition duration-300"
+            className={`cursor-pointer transition duration-300 
+              ${theme.resolvedTheme === "dark" ? "text-gray-200 hover:text-yellow-300" : "text-gray-800 hover:text-yellow-600"}`}
             onClick={() => router.push(item.path)}
           >
             {item.name}
