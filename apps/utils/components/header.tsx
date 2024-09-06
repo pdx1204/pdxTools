@@ -1,10 +1,10 @@
 "use client";
 import { useTheme } from "next-themes";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const Header: React.FC<any> = () => {
   const router = useRouter();
-
+  const pathname = usePathname();
   const theme = useTheme();
 
   const TAB_LIST = [
@@ -24,8 +24,7 @@ const Header: React.FC<any> = () => {
         {TAB_LIST.map((item) => (
           <li
             key={item.name}
-            className={`cursor-pointer transition duration-300 
-              ${theme.resolvedTheme === "dark" ? "text-gray-200 hover:text-yellow-300" : "text-gray-800 hover:text-yellow-600"}`}
+            className={`cursor-pointer transition duration-300 ${pathname === item.path && "text-yellow-300"} ${theme.resolvedTheme === "dark" ? "text-gray-200 hover:text-yellow-300" : "text-gray-800 hover:text-yellow-600"}`}
             onClick={() => router.push(item.path)}
           >
             {item.name}
