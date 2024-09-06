@@ -1,5 +1,6 @@
 import React from "react";
 import { FixedSizeList as List } from "react-window";
+import { Button } from "./ui/button";
 
 type ParseTableProps = {
   source: "BD09" | "GCJ02";
@@ -25,9 +26,9 @@ export default function ParseTable(props: ParseTableProps) {
 
   return (
     <div className="w-full">
-      <button className="btn btn-primary h-8 min-h-8" onClick={handleDownload}>
+      <Button className="btn btn-primary h-8 min-h-8" onClick={handleDownload}>
         下载
-      </button>
+      </Button>
       {source === "BD09" ? (
         <div className=" h-[50px] flex justify-start items-center">
           <div className="w-[25%]">百度经度</div>
@@ -49,7 +50,7 @@ export default function ParseTable(props: ParseTableProps) {
         height={500}
         width={"100%"}
       >
-        {({ index, style }) => (
+        {({ index, style }: { index: any; style: any }) => (
           <div style={style} className=" flex justify-start items-center">
             <div className="w-[25%]">{parseLngLatList[index][0]}</div>
             <div className="w-[25%]">{parseLngLatList[index][1]}</div>

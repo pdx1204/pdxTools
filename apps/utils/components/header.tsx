@@ -5,52 +5,28 @@ const Header: React.FC<any> = () => {
   const router = useRouter();
 
   const TAB_LIST = [
-    {
-      name: "图片预览",
-      fn: () => {
-        router.push("/image-preview");
-      },
-    },
-    {
-      name: "URL Decode&Encode",
-      fn: () => {
-        router.push("/url-decode-encode");
-      },
-    },
-    {
-      name: "颜色值转换",
-      fn: () => {
-        router.push("/color-convert");
-      },
-    },
-    {
-      name: "逗号分隔链接字符串",
-      fn: () => {
-        router.push("/");
-      },
-    },
-    {
-      name: "正则表达式提取文本",
-      fn: () => {
-        router.push("/regex-extract-text");
-      },
-    },
+    { name: "逗号分隔链接字符串", path: "/" },
+    { name: "地图经纬度转换", path: "/map-convert" },
+    { name: "图片预览", path: "/image-preview" },
+    { name: "URL Decode&Encode", path: "/url-decode-encode" },
+    { name: "颜色值转换", path: "/color-convert" },
+    { name: "正则表达式提取文本", path: "/regex-extract-text" },
   ];
 
   return (
-    <div>
-      <ul className={"flex"}>
+    <nav className="bg-gray-900 p-4 rounded shadow-lg -mx-5 mb-10">
+      <ul className="flex space-x-6">
         {TAB_LIST.map((item) => (
           <li
             key={item.name}
-            className={"mr-4 cursor-pointer"}
-            onClick={item.fn}
+            className="text-gray-200 cursor-pointer hover:text-yellow-300 transition duration-300"
+            onClick={() => router.push(item.path)}
           >
             {item.name}
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 

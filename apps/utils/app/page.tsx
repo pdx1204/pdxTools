@@ -88,7 +88,7 @@ const CommaSeparatedLinkString = () => {
     },
   ];
   return (
-    <div className={" text-xs py-5"}>
+    <div className={" text-xs"}>
       <Textarea
         className={"w-full rounded p-2 text-base"}
         rows={10}
@@ -120,6 +120,7 @@ const CommaSeparatedLinkString = () => {
         name=""
         id=""
         value={changeValue}
+        readOnly
       ></Textarea>
     </div>
   );
