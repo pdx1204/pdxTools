@@ -14,13 +14,26 @@ const CommaSeparatedLinkString = () => {
   const [needChangeValue, setNeedChangeValue] = useState("");
   const [changeValue, setChangeValue] = useState("");
   const [splitValue, setSplitValue] = useState(",");
-  const { toast } = useToast();
+
+  const processValue = (
+    value: string,
+    op?: { type: string; fn: any },
+    sp?: string
+  ) => {
+    const v1 = value.split("\n").filter((v) => !!v);
+    if (op?.type === "map") {
+      return v1.map(op.fn).join(sp || splitValue);
+    }
+    if (op?.type === "slice") {
+      return v1.slice(op.fn).join(sp || splitValue);
+    }
+    return v1.join(sp || splitValue);
+  };
 
   const onNeedChangeValue: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     const value = e.target.value;
     setNeedChangeValue(value);
-    console.log(value, "fsdfsa", value.split("\n"));
-    setChangeValue(value.split("\n").join(splitValue));
+    setChangeValue(processValue(value));
   };
 
   const optionList = [
@@ -28,10 +41,10 @@ const CommaSeparatedLinkString = () => {
       name: "加单引号",
       fn: () => {
         setChangeValue(
-          needChangeValue
-            .split("\n")
-            .map((item) => `'${item}'`)
-            .join(splitValue)
+          processValue(needChangeValue, {
+            type: "map",
+            fn: (item: string) => `'${item}'`,
+          })
         );
       },
     },
@@ -39,33 +52,35 @@ const CommaSeparatedLinkString = () => {
       name: "加双引号",
       fn: () => {
         setChangeValue(
-          needChangeValue
-            .split("\n")
-            .map((item) => `"${item}"`)
-            .join(splitValue)
+          processValue(needChangeValue, {
+            type: "map",
+            fn: (item: string) => `"${item}"`,
+          })
         );
       },
     },
     {
       name: "去除第一个",
       fn: () => {
-        setChangeValue(needChangeValue.split("\n").slice(1).join(splitValue));
+        setChangeValue(processValue(needChangeValue, { type: "slice", fn: 1 }));
       },
     },
     {
       name: "每行一个",
       fn: () => {
-        setChangeValue(needChangeValue.split("\n").join(splitValue + "\n"));
+        setChangeValue(
+          processValue(needChangeValue, undefined, splitValue + "\n")
+        );
       },
     },
     {
       name: "去除引号",
       fn: () => {
         setChangeValue(
-          needChangeValue
-            .split("\n")
-            .map((item) => item.replace(/['"]/g, ""))
-            .join(splitValue)
+          processValue(needChangeValue, {
+            type: "map",
+            fn: (item: string) => item.replace(/['"]/g, ""),
+          })
         );
       },
     },
@@ -74,9 +89,6 @@ const CommaSeparatedLinkString = () => {
       fn: () => {
         navigator.clipboard.writeText(changeValue);
         message.success("复制成功");
-        // toast({
-        //   description: "复制成功",
-        // });
       },
     },
     {
