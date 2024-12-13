@@ -1,6 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
 import { usePathname, useRouter } from "next/navigation";
+import { ThemeToggle } from "./theme-toggle";
 
 const Header: React.FC<any> = () => {
   const router = useRouter();
@@ -18,19 +19,22 @@ const Header: React.FC<any> = () => {
 
   return (
     <nav
-      className={`p-4 shadow-lg ${theme.resolvedTheme === "dark" ? "bg-gray-900" : "bg-white"} -mx-5 mb-10 text-sm`}
+      className="p-4 shadow-lg bg-background -mx-5 mb-10 text-sm border-b"
     >
-      <ul className="flex space-x-6">
-        {TAB_LIST.map((item) => (
-          <li
-            key={item.name}
-            className={`cursor-pointer transition duration-300 ${pathname === item.path && "text-yellow-300"} ${theme.resolvedTheme === "dark" ? "text-gray-200 hover:text-yellow-300" : "text-gray-800 hover:text-yellow-600"}`}
-            onClick={() => router.push(item.path)}
-          >
-            {item.name}
-          </li>
-        ))}
-      </ul>
+      <div className="flex justify-between items-center">
+        <ul className="flex space-x-6">
+          {TAB_LIST.map((item) => (
+            <li
+              key={item.name}
+              className={`cursor-pointer transition duration-300 ${pathname === item.path && "text-yellow-300"} ${"text-foreground hover:text-yellow-600"}`}
+              onClick={() => router.push(item.path)}
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+        <ThemeToggle />
+      </div>
     </nav>
   );
 };

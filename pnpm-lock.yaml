@@ -36,8 +36,8 @@ importers:
         specifier: ^3.2.5
         version: 3.2.5
       turbo:
-        specifier: ^1.13.1
-        version: 1.13.1
+        specifier: ^2.3.3
+        version: 2.3.3
 
   apps/face-recognition:
     dependencies:
@@ -2977,6 +2977,7 @@ packages:
 
   /acorn-import-assertions@1.9.0(acorn@8.10.0):
     resolution: {integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==}
+    deprecated: package has been renamed to acorn-import-attributes
     peerDependencies:
       acorn: ^8
     dependencies:
@@ -4532,7 +4533,7 @@ packages:
       eslint-plugin-import: 2.29.1(eslint@8.57.0)
       get-tsconfig: 4.6.2
       globby: 13.2.2
-      is-core-module: 2.12.1
+      is-core-module: 2.13.1
       is-glob: 4.0.3
       synckit: 0.8.5
     transitivePeerDependencies:
@@ -8669,64 +8670,64 @@ packages:
       yargs: 17.7.2
     dev: true
 
-  /turbo-darwin-64@1.13.1:
-    resolution: {integrity: sha512-CvbS+57ddn4eGAFW6Ha0O+W9E1S3W1rJ4xh4+LWtzAWuyCa8sOs9pLvGQYVtR9RVpb07bFlLhPUSrlyYXiphXQ==}
+  /turbo-darwin-64@2.3.3:
+    resolution: {integrity: sha512-bxX82xe6du/3rPmm4aCC5RdEilIN99VUld4HkFQuw+mvFg6darNBuQxyWSHZTtc25XgYjQrjsV05888w1grpaA==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@1.13.1:
-    resolution: {integrity: sha512-PLuKpmT6cK7W6lucapEsqlNGGyfLIlTWrX6fArQmC2posoqg0R70wvi1kXFe0YNsZxjjHSqn7KQCBOgIjh+ddw==}
+  /turbo-darwin-arm64@2.3.3:
+    resolution: {integrity: sha512-DYbQwa3NsAuWkCUYVzfOUBbSUBVQzH5HWUFy2Kgi3fGjIWVZOFk86ss+xsWu//rlEAfYwEmopigsPYSmW4X15A==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64@1.13.1:
-    resolution: {integrity: sha512-pHFwm7tfGo6O2gwUPl/xtem1xy0ypDM9Gba8dKrvKkJRoJsOeztIw5of+SPqbXD7kfxGDmEg7mDQGFA0xw7pog==}
+  /turbo-linux-64@2.3.3:
+    resolution: {integrity: sha512-eHj9OIB0dFaP6BxB88jSuaCLsOQSYWBgmhy2ErCu6D2GG6xW3b6e2UWHl/1Ho9FsTg4uVgo4DB9wGsKa5erjUA==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64@1.13.1:
-    resolution: {integrity: sha512-FnbameYxpeuR0jHvD0issd0kGvJdVvsRWwTBYo0wJ4OsNrMQFP95+TZLv2WAQGiHebv5bi09WBe0C5yMiHAiFg==}
+  /turbo-linux-arm64@2.3.3:
+    resolution: {integrity: sha512-NmDE/NjZoDj1UWBhMtOPmqFLEBKhzGS61KObfrDEbXvU3lekwHeoPvAMfcovzswzch+kN2DrtbNIlz+/rp8OCg==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64@1.13.1:
-    resolution: {integrity: sha512-fTZh1p3EV3y9kKQ/iy1OzNa4WSZu4FQn/GmnGw1SOv3fvd/wbpcm0ck0j3mo6grf/dwCxFdmRKVDL4yaZjHByA==}
+  /turbo-windows-64@2.3.3:
+    resolution: {integrity: sha512-O2+BS4QqjK3dOERscXqv7N2GXNcqHr9hXumkMxDj/oGx9oCatIwnnwx34UmzodloSnJpgSqjl8iRWiY65SmYoQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64@1.13.1:
-    resolution: {integrity: sha512-MXnhMHWb6HqI0mm3bQNv5i3OxhkVSATpUfisBvKHf4DXHvvejCfxXA0Pg/4sYqOej5gn4PXjcNH+45f7flUQ0A==}
+  /turbo-windows-arm64@2.3.3:
+    resolution: {integrity: sha512-dW4ZK1r6XLPNYLIKjC4o87HxYidtRRcBeo/hZ9Wng2XM/MqqYkAyzJXJGgRMsc0MMEN9z4+ZIfnSNBrA0b08ag==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo@1.13.1:
-    resolution: {integrity: sha512-eaPSwcmWa70Mjxph+T65U76RFgLQc5GpGV5u4Xy+GrpAReImlTwN1uYDpQ7hsdG338l9EW6cDGIdsHVV3Fo5wg==}
+  /turbo@2.3.3:
+    resolution: {integrity: sha512-DUHWQAcC8BTiUZDRzAYGvpSpGLiaOQPfYXlCieQbwUvmml/LRGIe3raKdrOPOoiX0DYlzxs2nH6BoWJoZrj8hA==}
     hasBin: true
     optionalDependencies:
-      turbo-darwin-64: 1.13.1
-      turbo-darwin-arm64: 1.13.1
-      turbo-linux-64: 1.13.1
-      turbo-linux-arm64: 1.13.1
-      turbo-windows-64: 1.13.1
-      turbo-windows-arm64: 1.13.1
+      turbo-darwin-64: 2.3.3
+      turbo-darwin-arm64: 2.3.3
+      turbo-linux-64: 2.3.3
+      turbo-linux-arm64: 2.3.3
+      turbo-windows-64: 2.3.3
+      turbo-windows-arm64: 2.3.3
     dev: true
 
   /type-check@0.4.0:

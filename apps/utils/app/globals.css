@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes slide-from-right {
+  from { transform: translateX(30px); }
+}
+
+@keyframes slide-to-left {
+  to { transform: translateX(-30px); }
+}
+
+::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 1;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 999;
+}
+
+::view-transition-old(root) {
+  z-index: 999;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -64,4 +112,30 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html {
+  transition: color 0.5s, background-color 0.5s;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* 处理暗色主题切换时的层级 */
+.dark::view-transition-old(root) {
+  z-index: 9;
+}
+.dark::view-transition-new(root) {
+  z-index: 10;
+}
+
+/* 处理亮色主题切换时的层级 */
+::view-transition-old(root) {
+  z-index: 10;
+}
+::view-transition-new(root) {
+  z-index: 9;
 }
