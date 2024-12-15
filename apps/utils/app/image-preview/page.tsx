@@ -2,8 +2,8 @@ import ImagePreview from "./ImagePreview";
 
 export default function Page() {
   return (
-    <div>
-      <h1>Image Preview</h1>
+    <div className="container mx-auto text-center p-5">
+      <h1 className="text-2xl font-bold mb-5">Image Preview</h1>
       <ImagePreview />
     </div>
   );
